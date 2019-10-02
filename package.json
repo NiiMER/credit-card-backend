@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node --experimental-modules ./src/index.mjs",
-    "lint": "eslint ./src --ext .json --ext js,mjs --fix",
+    "lint": "eslint . --ext js,mjs,json --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -21,7 +21,7 @@
     "src/**/*.{js,mjs}": [
       "npm run --silent lint", "git add"
     ],
-    "src/**/*.{json}": [
+    "./**/*.{json}": [
       "npm run --silent lint", "git add"
     ]
   },

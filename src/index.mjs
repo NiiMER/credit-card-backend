@@ -1,10 +1,10 @@
 import express from "express";
 import PrettyError from "pretty-error";
-import * as firebase from "firebase";
 import bodyParser from "body-parser";
 import mopRouter from "./api/mop/mop.route";
 import addApiDocs from "./docs/api-docs-generator";
 import errorResponder from "./utils/errorResponder";
+import "./api/mop/mop.controller";
 // import { firestore } from '@google-cloud/firestore';
 
 // instantiate PrettyError, which can then be used to render error objects
@@ -12,6 +12,7 @@ const pe = new PrettyError();
 pe.start();
 
 const app = express();
+
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json()); // for parsing application/json

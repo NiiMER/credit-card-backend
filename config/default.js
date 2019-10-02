@@ -1,5 +1,15 @@
 module.exports = {
   app: {
-    defaultPort: 3003
+               defaultPort: 3003
+  },
+                   irebase: {
+    config: {
+           apiKey: "AIzaSyBZrwCgokrHCFyWaVa9Yi7-Q-0I40XyFhA",
+        // authDomain: '<your-auth-domain>',
+       databaseURL: "https://credit-card-storage.firebaseio.com/",
+          projectId: "credit-card-storage"
+              // storageBucket: "<your-storage-bucket>",
+          // messagingSenderId: "<your-sender-id>"
+    }
   }
 };
