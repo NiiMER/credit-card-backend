@@ -2,7 +2,7 @@ module.exports = {
   app: {
     defaultPort: 3003
   },
-  irebase: {
+  firebase: {
     config: {
       apiKey: "AIzaSyBZrwCgokrHCFyWaVa9Yi7-Q-0I40XyFhA",
       // authDomain: '<your-auth-domain>',

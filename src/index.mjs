@@ -1,11 +1,13 @@
 import express from "express";
+import config from "config";
 import PrettyError from "pretty-error";
 import bodyParser from "body-parser";
 import mopRouter from "./api/mop/mop.route";
 import addApiDocs from "./docs/api-docs-generator";
 import errorResponder from "./utils/errorResponder";
-import "./api/mop/mop.controller";
 // import { firestore } from '@google-cloud/firestore';
+
+import firebaseManager from "./interface/firebaseManager";
 
 // instantiate PrettyError, which can then be used to render error objects
 const pe = new PrettyError();
@@ -13,7 +15,11 @@ pe.start();
 
 const app = express();
 
-const port = process.env.PORT || 3000;
+firebaseManager.initFirebase();
+firebaseManager.addCreditCardDetails();
+firebaseManager.getCreditCardDetails();
+
+const port = process.env.PORT || config.get("app.defaultPort") || 3000;
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
