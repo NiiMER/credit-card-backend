@@ -1,0 +1,37 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "This application is an API for credit card system.",
+		"version": "0.0.1",
+		"title": "CREDIT CARD SYSTEM"
+	},
+	"host": "credit.com",
+	"basePath": "/",
+	"tags": [],
+	"schemes": ["http", "https"],
+	"definitions": {
+		"Example": {
+			"type": "object",
+			"description": "Response from login endpoint that supposed to return the jsonwebtoken for globalUserId and sessionToken which they got returned from the backend login service",
+			"properties": {
+				"example": {
+					"type": "string",
+					"description": "Description",
+					"example": "Example"
+				}
+			},
+			"example": "ObjectExample"
+		}
+	},
+	"securityDefinitions": {
+		"jwtAuth": {
+			"type": "apiKey",
+			"name": "Authorization",
+			"in": "header"
+		}
+	},
+	"externalDocs": {
+		"description": "Find out more about how to use the CHATIFY API",
+		"url": "http://swagger.io/"
+	}
+}

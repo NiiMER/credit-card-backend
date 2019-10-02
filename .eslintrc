@@ -1,0 +1,30 @@
+{
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2017,
+      "sourceType": "module"
+    },
+    "plugins": ["prettier", "json"],
+    "extends": [
+        "plugin:prettier/recommended",
+        "prettier/standard"
+    ],
+    "rules": {
+        "prettier/prettier": "error",
+        "no-console": "error",
+        "no-debugger": "error",
+        "semi":["error", "always"],
+        "camelcase":"error",
+        "comma-dangle":"off",
+        "no-extra-semi": "error",
+        "prefer-arrow-callback": "error",
+        "indent":["error", 2],
+        "prefer-const": ["error", {
+            "destructuring": "any",
+            "ignoreReadBeforeAssign": false
+        }]
+    }
+  }

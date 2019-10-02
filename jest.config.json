@@ -1,0 +1,16 @@
+{
+    "name": "credit-card-backend-test-runner",
+    "transform": {
+      ".*": "<rootDir>/node_modules/babel-jest"
+    },
+    "moduleFileExtensions": ["js", "mjs", "json", "es6"],
+    "notify": true,
+    "verbose": true,
+    "roots": ["<rootDir>/src/"],
+    "testMatch": [
+      "**/src/**/tests/**/?(*.)(spec|test).js",
+      "**/src/**/tests/**/?(*.)(spec|test).?(m)js",
+      "**/src/**/?(*.)(spec|test).js",
+      "**/src/**/?(*.)(spec|test).?(m)js"
+    ]
+  }

@@ -1,0 +1,30 @@
+{
+    "presets": [
+      [
+        "env",
+        {
+          "modules": false,
+          "targets": {
+            "node": "current"
+          },
+          "decoratorsLegacy": true
+        }
+      ]
+    ],
+    "env": {
+      "test": {
+        "presets": [
+          [
+            "env",
+            {
+              "modules": "umd",
+              "targets": {
+                "node": "current"
+              },
+              "decoratorsLegacy": true
+            }
+          ]
+        ]
+      }
+    }
+  }
