@@ -4,26 +4,21 @@ import "firebase/database";
 
 const { apiKey, databaseURL, projectId } = config.get("firebase.config");
 
-let firebaseApp;
+let firebaseApp, db;
 
 const firebaseManager = {
-  initFirebase: () =>
-    (firebaseApp = firebase.initializeApp({ apiKey, databaseURL, projectId })),
+  initFirebase: () => {
+    firebaseApp = firebase.initializeApp({ apiKey, databaseURL, projectId });
+    db = firebase.database();
+  },
   addCreditCardDetails: () =>
-    firebase
-      .database()
-      .ref("credit-card-storage/1")
-      .set({
-        cardName: "test1",
-        cardNumber: 111111111111111,
-        limit: 10
-      }),
+    db.ref("credit-card-storage/1").set({
+      cardName: "test1",
+      cardNumber: 111111111111111,
+      limit: 10
+    }),
   getCreditCardDetails: async () => {
-    const snapshot = await firebase
-      .database()
-      .ref("credit-card-storage")
-      .once("value");
-
+    const snapshot = await db.ref("credit-card-storage").once("value");
     return snapshot.val() || [];
   }
 };
