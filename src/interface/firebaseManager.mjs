@@ -30,10 +30,10 @@ const firebaseManager = {
       limit: 0
     }
   ) =>
-    db.ref(`credit-card-storage/${new Date(Date.now()).getTime()}`).set({
-      cardName,
-      cardNumber,
-      limit
+    db.ref(`credit-card-storage/${cardDetail.cardNumber}`).set({
+      cardName: cardDetail.cardName,
+      cardNumber: cardDetail.cardNumber,
+      limit: cardDetail.limit
     }),
   /**
    * Function to get the cards.

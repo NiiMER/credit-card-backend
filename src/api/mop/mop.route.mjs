@@ -1,4 +1,5 @@
 import express from "express";
+import * as mopController from "./mop.controller";
 import * as mopMiddleware from "./mop.middleware";
 
 const mopRouter = express.Router();
@@ -11,31 +12,26 @@ const mopRouter = express.Router();
  *     - "credit list"
  *     summary: "Get all credit card in a list"
  *     description: "Endpoint to get a list of stored credit cards as array of json"
- *     operationId: "addPet"
+ *     operationId: "getCards"
  *     consumes:
  *     - "application/json"
  *     produces:
  *     - "application/json"
- *     parameters:
- *     - in: "body"
- *       name: "body"
- *       description: "Pet object that needs to be added to the store"
- *       required: true
- *       schema:
- *         $ref: "#/definitions/Example"
  *     responses:
- *       405:
- *         description: "Invalid Input"
  *       200:
  *         description: "Invalid Input"
  *       404:
  *         description: "Endpoint Not Found"
+ *         schema:
+ *            type: "object"
+ *            $ref: "#/definitions/ApiResponseNotFound"
  *       500:
  *         description: "Internal server error"
- *     security:
+ *         schema:
+ *            type: "object"
+ *            $ref: "#/definitions/ApiResponseServerError"
  */
-mopRouter.get("/", mopMiddleware.mopValidator);
-mopRouter.get("/", mopMiddleware.mopResponse);
+mopRouter.get("/", [mopController.get, mopMiddleware.mopResponse]);
 
 /**
  * @swagger
@@ -48,29 +44,34 @@ mopRouter.get("/", mopMiddleware.mopResponse);
  *     operationId: "addPet"
  *     consumes:
  *     - "application/json"
- *     - "application/xml"
  *     produces:
- *     - "application/xml"
  *     - "application/json"
  *     parameters:
  *     - in: "body"
  *       name: "body"
- *       description: "Pet object that needs to be added to the store"
+ *       description: "New card body information provided in the request"
  *       required: true
  *       schema:
  *         $ref: "#/definitions/Example"
  *     responses:
- *       405:
- *         description: "Invalid input"
- *     security:
- *     - petstore_auth:
- *       - "write:pets"
- *       - "read:pets"
+ *       200:
+ *         description: "Invalid Input"
+ *       404:
+ *         description: "Endpoint Not Found unified response"
+ *         schema:
+ *            type: "object"
+ *            $ref: "#/definitions/ApiResponseNotFound"
+ *       500:
+ *         description: "Internal server error unified reponse"
+ *         schema:
+ *            type: "object"
+ *            $ref: "#/definitions/ApiResponseServerError"
  */
-mopRouter.post("/add", (req, res) =>
-  res.json({ name: "POST to add method of payment" })
-);
-// mopRouter.put('/update', (req, res) => res.json({ name: "PUT to update method of payment" }));
-// mopRouter.delete('/delete', (req, res) => res.json({ name: "DELETE to remove method of payment" }));
+mopRouter.post("/add", [
+  mopMiddleware.mopValidator,
+  // mopMiddleware.validateCard,
+  mopController.post,
+  (req, res) => res.json({ name: "POST to add method of payment" })
+]);
 
 export default mopRouter;

@@ -16,8 +16,6 @@ pe.start();
 const app = express();
 
 firebaseManager.initFirebase();
-firebaseManager.addCreditCardDetails();
-firebaseManager.getCreditCardDetails();
 
 const port = process.env.PORT || config.get("app.defaultPort") || 3000;
 
@@ -37,7 +35,7 @@ app.use(
           errorResponder(
             "error",
             err.statusCode || 500,
-            "Error serving request"
+            err.message || "Error serving request"
           )
         )) ||
     next()

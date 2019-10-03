@@ -21,6 +21,69 @@
 				}
 			},
 			"example": "ObjectExample"
+		},
+		"ApiResponseSuccess":{
+			"type": "object",
+			"properties": {
+				"type": {
+					"type": "string",
+					"description": "Type of error reponse",
+					"example": "error"
+				},
+				"status": {
+					"type": "string",
+					"description": "The status code which this error belongs",
+					"example": "404"
+					
+				},
+				"message": {
+					"type": "string",
+					"description": "Specific message of the error",
+					"example": "Endpoint Not Found"
+				}
+			}
+		},		
+		"ApiResponseNotFound":{
+			"type": "object",
+			"properties": {
+				"type": {
+					"type": "string",
+					"description": "Type of error reponse",
+					"example": "error"
+				},
+				"status": {
+					"type": "string",
+					"description": "The status code which this error belongs",
+					"example": "404"
+					
+				},
+				"message": {
+					"type": "string",
+					"description": "Specific message of the error",
+					"example": "Endpoint Not Found"
+				}
+			}
+		},
+		"ApiResponseServerError":{
+			"type": "object",
+			"properties": {
+				"type": {
+					"type": "string",
+					"description": "Type of error reponse",
+					"example": "error"
+				},
+				"status": {
+					"type": "string",
+					"description": "The status code which this error belongs",
+					"example": "500"
+					
+				},
+				"message": {
+					"type": "string",
+					"description": "Specific message of the error",
+					"example": "Error serving request"
+				}
+			}
 		}
 	},
 	"securityDefinitions": {
