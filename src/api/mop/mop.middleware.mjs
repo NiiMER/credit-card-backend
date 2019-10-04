@@ -8,7 +8,8 @@ export const mopValidator = (req, res, next) => {
   req.body &&
     !schemesValidator.validate(req.body, mopBodySchema).errors.length &&
     validateCard(req.body.cardNumber) &&
-    next();
+    next() &&
+    returm;
 
   // If there is any error it won't exit the function by the next so it'll return validation error reponse to the client
   res

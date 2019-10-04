@@ -7,6 +7,10 @@ export const get = async (req, res, next) => {
 };
 
 export const post = (req, res, next) => {
-  firebaseManager.addCreditCardDetails(req.body);
+  firebaseManager.addCreditCardDetails(
+    req.body.cardName,
+    req.body.cardNumber,
+    req.body.limit
+  );
   next();
 };
