@@ -6,10 +6,7 @@ import swaggerSpec from "./api-docs";
  * will only generate the docs if the current environemnt is not production.
  * @param app Express application to add middlewares on
  */
-function addApiDocs(app) {
-  // if (process.env.NODE_ENV !== "production") {
+const addApiDocs = app =>
   app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-  // }
-}
 
 export default addApiDocs;

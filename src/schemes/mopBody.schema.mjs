@@ -2,22 +2,6 @@
  * Method of payments of JSON Schema.
  *
  */
-// const mopBodySchema = {
-//   id: "mopBody",
-//   type: "object",
-//   properties: {
-//     userName: {
-//       type: "string",
-//       required: true
-//     },
-//     password: {
-//       type: "string",
-//       required: true,
-//       minimum: 6
-//     }
-//   }
-// };
-
 const mopBodySchema = {
   id: "mopBodySchema",
   type: "object",
@@ -28,7 +12,8 @@ const mopBodySchema = {
     },
     cardNumber: {
       type: "string",
-      required: true
+      required: true,
+      maximum: 19
     },
     limit: {
       type: "number",

@@ -5,7 +5,6 @@ import bodyParser from "body-parser";
 import mopRouter from "./api/mop/mop.route";
 import addApiDocs from "./docs/api-docs-generator";
 import errorResponder from "./utils/errorResponder";
-// import { firestore } from '@google-cloud/firestore';
 
 import firebaseManager from "./interface/firebaseManager";
 
@@ -15,15 +14,16 @@ pe.start();
 
 const app = express();
 
-firebaseManager.initFirebase();
-
 const port = process.env.PORT || config.get("app.defaultPort") || 3000;
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
+firebaseManager.initFirebase();
+
 addApiDocs(app);
 
+// All the main endpoints will go here
 app.use("/mop", mopRouter);
 
 app.use(
