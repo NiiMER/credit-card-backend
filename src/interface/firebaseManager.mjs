@@ -18,10 +18,9 @@ const firebaseManager = {
   },
   /**
    * Function to add cards to the database.
-   * @param cardDetail {object} Object to insert to the database by fields
-   * @param cardDetail.cardName {object} Card holder name
-   * @param cardDetail.cardNumber {object} Card Number
-   * @param cardDetail.limit {object} Card limit amount
+   * @param cardName {string} Card holder name
+   * @param cardNumber {string} Card Number
+   * @param limit {number} Card limit amount
    */
   addCreditCardDetails: (cardName = "", cardNumber = "", limit = 0) =>
     db.ref(`credit-card-storage/${cardDetail.cardNumber}`).set({
