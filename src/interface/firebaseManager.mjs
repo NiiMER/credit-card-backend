@@ -23,17 +23,11 @@ const firebaseManager = {
    * @param cardDetail.cardNumber {object} Card Number
    * @param cardDetail.limit {object} Card limit amount
    */
-  addCreditCardDetails: (
-    cardDetail = {
-      cardName: "",
-      cardNumber: "",
-      limit: 0
-    }
-  ) =>
+  addCreditCardDetails: (cardName = "", cardNumber = "", limit = 0) =>
     db.ref(`credit-card-storage/${cardDetail.cardNumber}`).set({
-      cardName: cardDetail.cardName,
-      cardNumber: cardDetail.cardNumber,
-      limit: cardDetail.limit
+      cardName,
+      cardNumber,
+      limit
     }),
   /**
    * Function to get the cards.
