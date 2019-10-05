@@ -22,8 +22,8 @@ const firebaseManager = {
    * @param cardNumber {string} Card Number
    * @param limit {number} Card limit amount
    */
-  addCreditCardDetails: (cardName = "", cardNumber = "", limit = 0) =>
-    db.ref(`credit-card-storage/${cardNumber}`).set({
+  addCreditCardDetails: async (cardName = "", cardNumber = "", limit = 0) =>
+    await db.ref(`credit-card-storage/${cardNumber}`).set({
       cardName,
       cardNumber,
       limit

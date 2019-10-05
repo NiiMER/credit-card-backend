@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import config from "config";
 import PrettyError from "pretty-error";
 import bodyParser from "body-parser";
@@ -20,10 +21,12 @@ firebaseManager.initFirebase();
 addApiDocs(app);
 
 app
+  .use(cors())
   .use(bodyParser.json()) // for parsing application/json
   .use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
   // All the main endpoints will go here
-  .use("/mop", mopRouter)
+  .use("/mop", cors(), mopRouter)
 
   .use(errorHandler)
   .use("*", errorNotFoundHandler)

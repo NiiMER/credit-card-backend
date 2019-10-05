@@ -10,17 +10,26 @@
 	"tags": [],
 	"schemes": ["http", "https"],
 	"definitions": {
-		"Example": {
+		"PostCardRequestBodyExample": {
 			"type": "object",
 			"description": "Response from login endpoint that supposed to return the jsonwebtoken for globalUserId and sessionToken which they got returned from the backend login service",
 			"properties": {
-				"example": {
+				"cardName": {
 					"type": "string",
-					"description": "Description",
-					"example": "Example"
+					"description": "Card Name string",
+					"example": "John Smith"
+				},
+				"cardNumber": {
+					"type": "string",
+					"description": "Card Number",
+					"example": "4242 4242 4242 4242 42"
+				},
+				"limit": {
+					"type": "number",
+					"description": "Card Limit",
+					"example": 100
 				}
-			},
-			"example": "ObjectExample"
+			}
 		},
 		"ApiResponseSuccess":{
 			"type": "object",

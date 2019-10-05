@@ -19,7 +19,7 @@ const mopRouter = express.Router();
  *     - "application/json"
  *     responses:
  *       200:
- *         description: "Invalid Input"
+ *         description: "Endpoint successfully get data"
  *       404:
  *         description: "Endpoint Not Found"
  *         schema:
@@ -38,10 +38,10 @@ mopRouter.get("/", [mopController.get, mopMiddleware.mopResponse]);
  * /mop/add:
  *   post:
  *     tags:
- *     - "pet"
+ *     - "credit list"
  *     summary: "Add a new pet to the store"
  *     description: "hola hola"
- *     operationId: "addPet"
+ *     operationId: "addCard"
  *     consumes:
  *     - "application/json"
  *     produces:
@@ -52,10 +52,10 @@ mopRouter.get("/", [mopController.get, mopMiddleware.mopResponse]);
  *       description: "New card body information provided in the request"
  *       required: true
  *       schema:
- *         $ref: "#/definitions/Example"
+ *         $ref: "#/definitions/PostCardRequestBodyExample"
  *     responses:
  *       200:
- *         description: "Invalid Input"
+ *         description: "Successful credit card addition"
  *       404:
  *         description: "Endpoint Not Found unified response"
  *         schema:
@@ -69,9 +69,8 @@ mopRouter.get("/", [mopController.get, mopMiddleware.mopResponse]);
  */
 mopRouter.post("/add", [
   mopMiddleware.mopValidator,
-  // mopMiddleware.validateCard,
   mopController.post,
-  (req, res) => res.json({ name: "POST to add method of payment" })
+  mopMiddleware.mopPostResponse
 ]);
 
 export default mopRouter;

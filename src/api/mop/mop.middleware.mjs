@@ -1,26 +1,29 @@
 import jsonschema from "jsonschema";
 import { mopBodySchema } from "../../schemes/index";
-import errorResponder from "../../utils/errorResponder";
+import jsonResponse from "../../utils/errorResponder";
 
 const schemesValidator = new jsonschema.Validator();
 
 export const mopValidator = (req, res, next) => {
-  req.body &&
+  const validationSuccess =
+    req.body &&
     !schemesValidator.validate(req.body, mopBodySchema).errors.length &&
-    validateCard(req.body.cardNumber) &&
-    next() &&
-    returm;
+    validateCard(req.body.cardNumber);
 
-  // If there is any error it won't exit the function by the next so it'll return validation error reponse to the client
-  res
-    .status(403)
-    .json(
-      errorResponder(
-        "error",
-        403,
-        "Invalid parameters provided with the request"
-      )
-    );
+  if (validationSuccess) {
+    return next();
+  } else {
+    // If there is any error it won't exit the function by the next so it'll return validation error reponse to the client
+    res
+      .status(403)
+      .json(
+        jsonResponse(
+          "error",
+          403,
+          "Invalid parameters provided with the request"
+        )
+      );
+  }
 };
 
 export const validateCard = value => {
@@ -43,3 +46,6 @@ export const validateCard = value => {
 };
 
 export const mopResponse = (req, res) => res.json(res.locals.listOfCredits);
+
+export const mopPostResponse = (req, res, next) =>
+  res.json(jsonResponse("success", 200, "POST to add method of payment"));
