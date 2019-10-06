@@ -15,11 +15,11 @@ export const mopValidator = (req, res, next) => {
   } else {
     // If there is any error it won't exit the function by the next so it'll return validation error reponse to the client
     res
-      .status(403)
+      .status(400)
       .json(
         jsonResponse(
           "error",
-          403,
+          400,
           "Invalid parameters provided with the request"
         )
       );
