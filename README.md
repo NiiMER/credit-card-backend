@@ -8,7 +8,7 @@ Backend setup for credit card solution
 # For Local Testing on your Machine
 ## To start the application use the following command
 
-`npm i && npm run build && npm start`
+`npm i && npm start`
 
 ## To run the unit testing scripts
 
