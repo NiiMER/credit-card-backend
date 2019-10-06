@@ -5,6 +5,10 @@ Backend setup for credit card solution
 ## https://credit-card-system.herokuapp.com/mop (GET) Request through Post Man
 ## https://credit-card-system.herokuapp.com/mop/add (POST) Request through Post Man
 
+## For the API documentation access the following link
+
+## https://credit-card-system.herokuapp.com/api-docs/
+
 # For Local Testing on your Machine
 ## To start the application use the following command
 
