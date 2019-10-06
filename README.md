@@ -22,4 +22,7 @@ Backend setup for credit card solution
 
 `npm run lint`
 
+## For the API Documentation while you run the API locally access the following
+## 
+
 ### Please note that you need to run the API project as well in the same way above
