@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import * as mopController from "./mop.controller";
 import * as mopMiddleware from "./mop.middleware";
 
@@ -31,7 +32,7 @@ const mopRouter = express.Router();
  *            type: "object"
  *            $ref: "#/definitions/ApiResponseServerError"
  */
-mopRouter.get("/", [mopController.get, mopMiddleware.mopResponse]);
+mopRouter.get("/", cors(), [mopController.get, mopMiddleware.mopResponse]);
 
 /**
  * @swagger
@@ -67,7 +68,7 @@ mopRouter.get("/", [mopController.get, mopMiddleware.mopResponse]);
  *            type: "object"
  *            $ref: "#/definitions/ApiResponseServerError"
  */
-mopRouter.post("/add", [
+mopRouter.post("/add", cors(), [
   mopMiddleware.mopValidator,
   mopController.post,
   mopMiddleware.mopPostResponse
