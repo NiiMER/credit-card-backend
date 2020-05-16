@@ -1,6 +1,8 @@
 # credit-card-backend
 Backend setup for credit card solution
 
+![Node.js CI](https://github.com/NiiMER/credit-card-backend/workflows/Node.js%20CI/badge.svg?branch=master)
+
 # This RESTFUL API is deployed with the latest changes on the following link
 ## https://credit-card-system.herokuapp.com/mop (GET) Request through Post Man
 ## https://credit-card-system.herokuapp.com/mop/add (POST) Request through Post Man
