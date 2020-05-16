@@ -1,6 +1,6 @@
 {
   "name": "credit-card-system",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Web application to add and manage payment methods by storing it in a firebase storage on the cloud",
   "main": "./src/index.mjs",
   "scripts": {
