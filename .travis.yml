@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+- '8'
+script:
+- npm test
+addons:
+  apt:
+    packages:
+    - xvfb
+install:
+- curl -o- -L https://yarnpkg.com/install.sh | bash
+- export PATH="$HOME/.yarn/bin:$PATH"
+- yarn install
+# - curl -O https://raw.githubusercontent.com/danvk/travis-weigh-in/master/weigh_in.py
+#  && python weigh_in.py index-built.js
+deploy:
+  skip_cleanup: true
+  provider: npm
+  email: m7ammad.nimer@gmail.com
+  api_key:
+    secure: gDGq1udGu2y171RLNScLgA
+  on:
+    tags: true
+    repo: NiiMER/credit-card-backend
