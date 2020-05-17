@@ -3,7 +3,7 @@ import apiRootDocument from "./swagger.json";
 
 const options = {
   swaggerDefinition: apiRootDocument,
-  apis: ["./src/api/mop/mop.route.mjs"] // Path to the API docs
+  apis: ["./src/api/mop/mop.route.mjs"], // Path to the API docs
 };
 
 let swaggerSpec = {};

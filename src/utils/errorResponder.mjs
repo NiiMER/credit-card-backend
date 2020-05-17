@@ -1,7 +1,7 @@
 const jsonResponse = (type = "error", status = 500, message = "Error") => ({
   type,
   status,
-  message
+  message,
 });
 
 export default jsonResponse;

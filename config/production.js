@@ -1,5 +1,5 @@
 module.exports = {
   app: {
-    defaultPort: 80
-  }
+    defaultPort: 80,
+  },
 };

@@ -24,6 +24,6 @@ module.exports = {
         // eslint-disable-next-line prettier/prettier
         "PORT": "80"
       },
-    }
-  ]
+    },
+  ],
 };

@@ -8,19 +8,19 @@ const mopBodySchema = {
   properties: {
     cardName: {
       type: "string",
-      required: true
+      required: true,
     },
     cardNumber: {
       type: "string",
       required: true,
-      maximum: 19
+      maximum: 19,
     },
     limit: {
       type: "number",
       required: true,
-      minimum: 0
-    }
-  }
+      minimum: 0,
+    },
+  },
 };
 
 export default mopBodySchema;
