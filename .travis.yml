@@ -3,6 +3,7 @@ node_js:
 - 'lts/*'
 script:
 - npm test
+- npm start
 addons:
   apt:
     packages:
