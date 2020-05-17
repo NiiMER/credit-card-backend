@@ -1,6 +1,5 @@
 import config from "config";
-import firebase from "firebase/app";
-import "firebase/database";
+import firebase from "firebase";
 
 const { apiKey, databaseURL, projectId } = config.get("firebase.config");
 let firebaseApp, db;
@@ -26,7 +25,7 @@ const firebaseManager = {
     await db.ref(`credit-card-storage/${cardNumber}`).set({
       cardName,
       cardNumber,
-      limit
+      limit,
     }),
   /**
    * Function to get the cards.
@@ -39,7 +38,7 @@ const firebaseManager = {
    * Function to get the firebaseApp instance
    * @returns {object} The instance of the firebaseApp
    */
-  getfirebaseApp: () => firebaseApp
+  getfirebaseApp: () => firebaseApp,
 };
 
 export default firebaseManager;

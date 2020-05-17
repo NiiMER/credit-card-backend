@@ -1,6 +1,6 @@
 import jsonschema from "jsonschema";
-import { mopBodySchema } from "../../schemes/index";
-import jsonResponse from "../../utils/errorResponder";
+import { mopBodySchema } from "../../schemes/index.mjs";
+import jsonResponse from "../../utils/errorResponder.mjs";
 
 const schemesValidator = new jsonschema.Validator();
 
@@ -26,7 +26,7 @@ export const mopValidator = (req, res, next) => {
   }
 };
 
-export const validateCard = value => {
+export const validateCard = (value) => {
   if (/[^0-9-\s]+/.test(value)) return false;
 
   let nCheck = 0,

@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
-import * as mopController from "./mop.controller";
-import * as mopMiddleware from "./mop.middleware";
+import * as mopController from "./mop.controller.mjs";
+import * as mopMiddleware from "./mop.middleware.mjs";
 
 const mopRouter = express.Router();
 
@@ -71,7 +71,7 @@ mopRouter.get("/", cors(), [mopController.get, mopMiddleware.mopResponse]);
 mopRouter.post("/add", cors(), [
   mopMiddleware.mopValidator,
   mopController.post,
-  mopMiddleware.mopPostResponse
+  mopMiddleware.mopPostResponse,
 ]);
 
 export default mopRouter;

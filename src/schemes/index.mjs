@@ -1,1 +1,1 @@
-export { default as mopBodySchema } from "./mopBody.schema";
+export { default as mopBodySchema } from "./mopBody.schema.mjs";

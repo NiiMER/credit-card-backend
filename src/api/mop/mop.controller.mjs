@@ -1,4 +1,4 @@
-import firebaseManager from "../../interface/firebaseManager";
+import firebaseManager from "../../interface/firebaseManager.mjs";
 
 export const get = async (req, res, next) => {
   const listOfCredits = await firebaseManager.getCreditCardDetails();

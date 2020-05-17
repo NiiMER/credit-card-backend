@@ -3,11 +3,11 @@ import cors from "cors";
 import config from "config";
 import PrettyError from "pretty-error";
 import bodyParser from "body-parser";
-import mopRouter from "./api/mop/mop.route";
-import addApiDocs from "./docs/api-docs-generator";
-import { errorHandler, errorNotFoundHandler } from "./utils/errorResponder";
+import mopRouter from "./api/mop/mop.route.mjs";
+import addApiDocs from "./docs/api-docs-generator.mjs";
+import { errorHandler, errorNotFoundHandler } from "./utils/errorResponder.mjs";
 
-import firebaseManager from "./interface/firebaseManager";
+import firebaseManager from "./interface/firebaseManager.mjs";
 
 // instantiate PrettyError, which can then be used to render error objects
 const pe = new PrettyError();
