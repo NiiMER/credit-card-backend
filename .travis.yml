@@ -4,8 +4,8 @@ node_js:
 before_script:
   - npm install -g pm2
 script:
-- test
-- start
+- npm test
+- npm start
 addons:
   apt:
     packages:
