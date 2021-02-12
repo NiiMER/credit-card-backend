@@ -4,8 +4,8 @@
   "description": "Web application to add and manage payment methods by storing it in a firebase storage on the cloud",
   "main": "./src/index.mjs",
   "scripts": {
-    "start": "NODE_ENV=production node --experimental-modules --experimental-json-modules ./src/index.mjs",
-    "start:development": "NODE_ENV=development node --experimental-modules --experimental-json-modules ./src/index.mjs",
+    "start": "NODE_ENV=production node --experimental-modules ./src/index.mjs",
+    "start:development": "NODE_ENV=development node --experimental-modules ./src/index.mjs",
     "lint": "eslint . --ext js,mjs,json --fix",
     "test": "jest --env=node --config=jest.config.json"
   },
